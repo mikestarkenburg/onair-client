@@ -1,5 +1,6 @@
 # Stark's Onair Windows Powershell Client Script
 #
+# todo:  light webhooks, logging
 
 $ErrorActionPreference= 'silentlycontinue'
 if (Get-Process Zoom) 
