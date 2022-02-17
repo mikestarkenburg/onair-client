@@ -7,9 +7,10 @@ $global:ErrorActionPreference= 'SilentlyContinue'
 $global:ProgressPreference = 'SilentlyContinue' 
 $url = "onair.starkenburg.com"
 $user = "Mike"
-$seconds = 5
-Do {
+$seconds = 2
 
+
+Do {
    if (Get-Process Zoom) 
    {
       # Zoom is active and there are ZERO UDP packets
@@ -19,7 +20,7 @@ Do {
          Invoke-WebRequest -UseBasicParsing -Uri $url/?LED=OFF | Out-Null
       }
 
-   # Zoom is active and there are UDP packets
+      # Zoom is active and there are UDP packets
       If ((Get-NetUDPEndpoint -OwningProcess (Get-Process Zoom).Id -EA 0|Measure-Object).count -gt 0) 
       {
          Write-Host $user + " is in a meeting"
